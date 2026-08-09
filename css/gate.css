@@ -1,114 +1,85 @@
-/* ==========================
-   GATE LAYER
-========================== */
-
 #gate{
 
-    position:fixed;
-    inset:0;
+position:absolute;
+inset:0;
 
-    z-index:100;
+display:flex;
+justify-content:center;
+align-items:center;
 
-    pointer-events:auto;
+perspective:2200px;
 
-    perspective:2200px;
+z-index:20;
 
 }
-
-/* ==========================
-   FRAME
-========================== */
 
 #frame{
 
-    position:absolute;
-    inset:0;
+position:absolute;
 
-    width:100%;
-    height:100%;
+width:100%;
+height:100%;
 
-    object-fit:cover;
+object-fit:cover;
 
-    z-index:3;
+pointer-events:none;
 
-    pointer-events:none;
+z-index:5;
 
 }
 
-/* ==========================
-   LEFT DOOR
-========================== */
+#leftDoor,
+#rightDoor{
+
+position:absolute;
+
+top:0;
+
+width:50%;
+height:100%;
+
+object-fit:cover;
+
+transform-style:preserve-3d;
+
+transition:transform 2.4s ease-in-out;
+
+z-index:10;
+
+}
 
 #leftDoor{
 
-    position:absolute;
+left:0;
 
-    left:0;
-    top:0;
-
-    width:50%;
-    height:100%;
-
-    object-fit:cover;
-
-    object-position:left center;
-
-    transform-origin:left center;
-
-    transition:transform 2.4s ease;
-
-    z-index:2;
+transform-origin:left center;
 
 }
-
-/* ==========================
-   RIGHT DOOR
-========================== */
 
 #rightDoor{
 
-    position:absolute;
+right:0;
 
-    right:0;
-    top:0;
-
-    width:50%;
-    height:100%;
-
-    object-fit:cover;
-
-    object-position:right center;
-
-    transform-origin:right center;
-
-    transition:transform 2.4s ease;
-
-    z-index:2;
+transform-origin:right center;
 
 }
 
-/* ==========================
-   OPEN
-========================== */
+body.open #leftDoor{
 
-#gate.open #leftDoor{
-
-    transform:
-        perspective(2200px)
-        rotateY(-105deg);
+transform:rotateY(-110deg);
 
 }
 
-#gate.open #rightDoor{
+body.open #rightDoor{
 
-    transform:
-        perspective(2200px)
-        rotateY(105deg);
+transform:rotateY(110deg);
 
 }
 
-#gate{
+body.open #frame{
 
-    transition:opacity 1s ease;
+opacity:0;
+
+transition:opacity .8s ease 2s;
 
 }
