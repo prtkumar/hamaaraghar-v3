@@ -1,17 +1,23 @@
 const gate = document.getElementById("gate");
+const entrance = document.getElementById("entrance");
 const world = document.getElementById("world");
 
+let opened = false;
+
 gate.addEventListener("click", () => {
+
+    if (opened) return;
+    opened = true;
 
     gate.classList.add("open");
 
     setTimeout(() => {
-        gate.style.display = "none";
-    }, 2200);
+        entrance.style.opacity = "0";
+    }, 1800);
 
     setTimeout(() => {
-        world.style.opacity = "1";
+        entrance.style.display = "none";
         world.classList.add("show");
-    }, 500);
+    }, 2400);
 
 });
