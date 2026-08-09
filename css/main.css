@@ -1,15 +1,10 @@
-/* =========================
-   RESET
-========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
@@ -17,244 +12,72 @@ body{
     font-family:serif;
 }
 
-/* =========================
-   ENTRANCE
-========================= */
-
-#entrance{
-    position:fixed;
-    inset:0;
-    z-index:100;
-    transition:opacity .8s ease;
-}
-
-/* =========================
-   WORLD
-========================= */
-
 #world{
     position:fixed;
     inset:0;
-
-    opacity:0;
-    transition:opacity 1.5s ease;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
     overflow:hidden;
 }
 
-/* JS add karega */
-#world.show{
-    opacity:1;
-}
-
-/* =========================
-   BACKGROUND
-========================= */
-
 #scene{
-    position:absolute;
-    inset:0;
-
     width:100%;
     height:100%;
-
     object-fit:cover;
     object-position:center;
-
-    will-change: transform;
-transition: transform 8s ease;
-
     transform:scale(1);
     animation:slowZoom 18s linear forwards;
 }
 
-
 @keyframes slowZoom{
-
     from{
         transform:scale(1);
     }
-
     to{
-        transform:scale(1.12);
+        transform:scale(1.06);
     }
-
 }
 
-/* =========================
-   DARK OVERLAY
-========================= */
+#gate{
+    position:fixed;
+    inset:0;
+    z-index:100;
+    overflow:hidden;
+    pointer-events:none;
+}
 
-#world::before{
-
-    content:"";
-
+#gateImage{
     position:absolute;
     inset:0;
-
-    background:rgba(0,0,0,.35);
-
-    z-index:1;
-
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
-
-/* =========================
-   WELCOME
-========================= */
 
 #welcome{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:75%;
+    max-width:520px;
 
-    position:relative;
+    background:rgba(20,20,20,.45);
+    backdrop-filter:blur(12px);
 
-    z-index:2;
-
-    color:#fff;
+    border-radius:24px;
+    padding:45px 28px;
 
     text-align:center;
+    color:#fff;
 
-    opacity:0;
-
-    transition:opacity 3s ease;
-
-    padding:20px;
-
-}
-
-#world.show #welcome{
-
-    opacity:1;
-
+    transition:opacity .8s;
 }
 
 #welcome h1{
-
     font-size:3rem;
-    font-weight:300;
-    letter-spacing:2px;
-
-    margin-bottom:20px;
-
+    margin-bottom:25px;
 }
 
 #welcome p{
-
-    font-size:1.2rem;
+    font-size:1.35rem;
     line-height:1.8;
-
-    max-width:700px;
-
-}
-
-body{
-
-    opacity:0;
-
-    transition:opacity .8s ease;
-
-}
-
-body.ready{
-
-    opacity:1;
-
-}
-
-/* ========= CAMERA ========= */
-
-@keyframes cameraMove{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    100%{
-
-        transform:scale(1.08);
-
-    }
-
-}
-
-#scene{
-
-    animation:cameraMove 18s ease forwards;
-
-}
-
-/* ========= SUNLIGHT ========= */
-
-#world::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:radial-gradient(
-        circle at center,
-        rgba(255,235,170,.12),
-        rgba(0,0,0,.18)
-    );
-
-    pointer-events:none;
-
-    z-index:1;
-
-}
-
-body{
-
-    background:#000;
-
-}
-
-.loaded #scene{
-
-    filter:brightness(1.03) saturate(1.05);
-
-}
-
-/* ===========================
-   WORLD FADE
-=========================== */
-
-#world{
-
-    opacity:0;
-
-    transition:opacity 1.8s ease;
-
-}
-
-#world.show{
-
-    opacity:1;
-
-}
-
-#welcome{
-
-    position:relative;
-
-    z-index:5;
-
-    max-width:700px;
-
-    padding:40px;
-
-    background:rgba(0,0,0,.28);
-
-    backdrop-filter:blur(8px);
-
-    border-radius:24px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-
 }
