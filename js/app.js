@@ -23,13 +23,13 @@ document.addEventListener(
 
 const enterBtn = document.getElementById("enterBtn");
 
-if (enterBtn){
+if(enterBtn){
 
-    enterBtn.addEventListener("click",()=>{
+enterBtn.onclick=()=>{
 
-        alert("हमारा घर में आपका स्वागत है 🌿");
+window.location.href="beej.html";
 
-    });
+};
 
 }
 
