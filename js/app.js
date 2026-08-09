@@ -20,3 +20,15 @@ document.addEventListener(
     "DOMContentLoaded",
     () => App.start()
 );
+
+const enterBtn = document.getElementById("enterBtn");
+
+if (enterBtn){
+
+    enterBtn.addEventListener("click",()=>{
+
+        alert("हमारा घर में आपका स्वागत है 🌿");
+
+    });
+
+}
