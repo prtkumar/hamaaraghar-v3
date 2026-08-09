@@ -1,33 +1,31 @@
 const gate = document.getElementById("gate");
 
-const world = document.getElementById("world");
-
 let opened = false;
 
 gate.addEventListener("click", () => {
 
-    if(opened) return;
+    if (opened) return;
 
     opened = true;
 
-    gate.classList.add("open");
+    document.body.classList.add("open");
 
     setTimeout(() => {
 
         gate.style.pointerEvents = "none";
 
-    },2400);
+    }, 2400);
 
     setTimeout(() => {
 
         gate.style.opacity = "0";
 
-    },3200);
+    }, 3200);
 
     setTimeout(() => {
 
         gate.style.display = "none";
 
-    },4200);
+    }, 4200);
 
 });
