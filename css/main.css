@@ -206,3 +206,15 @@ body.ready{
     z-index:1;
 
 }
+
+body{
+
+    background:#000;
+
+}
+
+.loaded #scene{
+
+    filter:brightness(1.03) saturate(1.05);
+
+}
