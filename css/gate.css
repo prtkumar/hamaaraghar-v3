@@ -106,3 +106,9 @@
         rotateY(105deg);
 
 }
+
+#gate{
+
+    transition:opacity 1s ease;
+
+}
