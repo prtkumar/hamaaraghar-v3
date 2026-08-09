@@ -65,11 +65,13 @@ body{
     object-fit:cover;
     object-position:center;
 
-    z-index:0;
+    will-change: transform;
+transition: transform 8s ease;
 
     transform:scale(1);
     animation:slowZoom 18s linear forwards;
 }
+
 
 @keyframes slowZoom{
 
