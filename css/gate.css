@@ -1,1 +1,99 @@
+/* =========================
+   GATE
+========================= */
 
+#gate{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    z-index:100;
+}
+
+/* =========================
+   DOORS
+========================= */
+
+.door{
+    width:50%;
+    height:100%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:transform 2.2s cubic-bezier(.7,0,.2,1);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.door img{
+
+    position:absolute;
+
+    top:0;
+
+    width:200%;
+    height:100%;
+
+    object-fit:cover;
+
+    user-select:none;
+    pointer-events:none;
+
+}
+
+/* LEFT HALF */
+
+.left img{
+
+    left:0;
+
+}
+
+/* RIGHT HALF */
+
+.right img{
+
+    right:0;
+
+}
+
+/* =========================
+   HINGE
+========================= */
+
+.left{
+
+    transform-origin:left center;
+
+}
+
+.right{
+
+    transform-origin:right center;
+
+}
+
+/* =========================
+   OPEN
+========================= */
+
+.open .left{
+
+    transform:translateX(-105%);
+
+}
+
+.open .right{
+
+    transform:translateX(105%);
+
+}
