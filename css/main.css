@@ -1,1 +1,148 @@
+/* =========================
+   RESET
+========================= */
 
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:serif;
+}
+
+/* =========================
+   ENTRANCE
+========================= */
+
+#entrance{
+    position:fixed;
+    inset:0;
+    z-index:100;
+    transition:opacity .8s ease;
+}
+
+/* =========================
+   WORLD
+========================= */
+
+#world{
+    position:fixed;
+    inset:0;
+
+    opacity:0;
+    transition:opacity 1.5s ease;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+/* JS add karega */
+#world.show{
+    opacity:1;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+#scene{
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+    object-position:center;
+
+    z-index:0;
+
+    transform:scale(1);
+    animation:slowZoom 18s linear forwards;
+}
+
+@keyframes slowZoom{
+
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.12);
+    }
+
+}
+
+/* =========================
+   DARK OVERLAY
+========================= */
+
+#world::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:1;
+
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+#welcome{
+
+    position:relative;
+
+    z-index:2;
+
+    color:#fff;
+
+    text-align:center;
+
+    opacity:0;
+
+    transition:opacity 3s ease;
+
+    padding:20px;
+
+}
+
+#world.show #welcome{
+
+    opacity:1;
+
+}
+
+#welcome h1{
+
+    font-size:3rem;
+    font-weight:300;
+    letter-spacing:2px;
+
+    margin-bottom:20px;
+
+}
+
+#welcome p{
+
+    font-size:1.2rem;
+    line-height:1.8;
+
+    max-width:700px;
+
+}
