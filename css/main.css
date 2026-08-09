@@ -218,3 +218,21 @@ body{
     filter:brightness(1.03) saturate(1.05);
 
 }
+
+/* ===========================
+   WORLD FADE
+=========================== */
+
+#world{
+
+    opacity:0;
+
+    transition:opacity 1.8s ease;
+
+}
+
+#world.show{
+
+    opacity:1;
+
+}
