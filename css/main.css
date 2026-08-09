@@ -160,3 +160,49 @@ body.ready{
     opacity:1;
 
 }
+
+/* ========= CAMERA ========= */
+
+@keyframes cameraMove{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        transform:scale(1.08);
+
+    }
+
+}
+
+#scene{
+
+    animation:cameraMove 18s ease forwards;
+
+}
+
+/* ========= SUNLIGHT ========= */
+
+#world::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:radial-gradient(
+        circle at center,
+        rgba(255,235,170,.12),
+        rgba(0,0,0,.18)
+    );
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
