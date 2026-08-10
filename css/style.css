@@ -287,3 +287,24 @@ body.ready #home{
     opacity:1;
 
 }
+
+#gateImage{
+
+    will-change:
+    transform,
+    opacity;
+
+}
+
+#scene{
+
+    will-change:
+    transform;
+
+}
+
+#welcome{
+
+    opacity:0;
+
+}
