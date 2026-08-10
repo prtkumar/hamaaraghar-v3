@@ -1,73 +1,64 @@
-/* =====================================
-   HAMAARA GHAR V7
-===================================== */
-
-const body = document.body;
-
 const gate = document.getElementById("gate");
-
-const intro = document.getElementById("intro");
-
+const gateImage = document.getElementById("gateImage");
+const scene = document.getElementById("scene");
 const welcome = document.getElementById("welcome");
-
-const home = document.getElementById("home");
 
 let entered = false;
 
-/* -------------------------------------
-   ENTER
-------------------------------------- */
+gate.addEventListener("click", () => {
 
-function enterHome(){
-
-    if(entered) return;
+    if (entered) return;
 
     entered = true;
 
-    body.classList.add("open");
+    gate.style.pointerEvents = "none";
 
-    /* 3 सेकण्ड बाद Welcome हटे */
+    /* हल्का प्रकाश */
+
+    document.body.classList.add("open");
+
+    /* द्वार धीरे-धीरे विलीन */
+
+    gateImage.animate(
+        [
+            {
+                opacity:1,
+                transform:"scale(1)"
+            },
+            {
+                opacity:0,
+                transform:"scale(.94)"
+            }
+        ],
+        {
+            duration:2200,
+            easing:"ease-in-out",
+            fill:"forwards"
+        }
+    );
+
+    /* संसार भीतर आए */
+
+    scene.animate(
+        [
+            {
+                transform:"scale(1.08)"
+            },
+            {
+                transform:"scale(1)"
+            }
+        ],
+        {
+            duration:5200,
+            easing:"ease-out",
+            fill:"forwards"
+        }
+    );
 
     setTimeout(()=>{
 
-        welcome.style.opacity="0";
+        welcome.style.opacity="1";
 
-    },5200);
-
-    /* Home दिखाई दे */
-
-    setTimeout(()=>{
-
-        body.classList.add("ready");
-
-    },6200);
-
-    /* Intro हटे */
-
-    setTimeout(()=>{
-
-        intro.style.display="none";
-
-    },7000);
-
-}
-
-/* -------------------------------------
-   CLICK
-------------------------------------- */
-
-gate.addEventListener("click",enterHome);
-
-/* -------------------------------------
-   SPACE KEY
-------------------------------------- */
-
-document.addEventListener("keydown",(e)=>{
-
-    if(e.code==="Space"){
-
-        enterHome();
-
-    }
+    },1800);
 
 });
