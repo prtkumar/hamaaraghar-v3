@@ -1,98 +1,113 @@
+/* =========================
+   RESET
+========================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html,body{
-
-width:100%;
-height:100%;
-overflow:hidden;
-background:#000;
-
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:Georgia, serif;
 }
+
+/* =========================
+   HERO
+========================= */
+
+#hero{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+}
+
+/* =========================
+   WORLD
+========================= */
 
 #world{
-
-position:relative;
-width:100vw;
-height:100vh;
-
-overflow:hidden;
-
+    position:absolute;
+    inset:0;
 }
 
 #scene{
-
-position:absolute;
-
-width:100%;
-height:100%;
-
-object-fit:cover;
-
-transform:scale(1.15);
-
-transition:transform 6s ease;
-
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transform:scale(1.08);
+    transition:transform 6s ease;
 }
+
+/* कैमरा धीरे-धीरे भीतर जाएगा */
 
 body.open #scene{
-
-transform:scale(1);
-
+    transform:scale(1);
 }
+
+/* =========================
+   WELCOME
+========================= */
 
 #welcome{
 
-position:absolute;
+    position:fixed;
 
-left:50%;
-top:50%;
+    left:50%;
+    top:50%;
 
-transform:translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
-width:70%;
+    width:min(90%,620px);
 
-padding:45px;
+    padding:40px;
 
-border-radius:28px;
+    border-radius:24px;
 
-background:rgba(35,25,10,.45);
+    background:rgba(15,15,15,.35);
 
-backdrop-filter:blur(14px);
+    backdrop-filter:blur(12px);
 
-text-align:center;
+    text-align:center;
 
-color:white;
+    color:#fff;
 
-opacity:0;
+    opacity:0;
 
-transition:opacity 2s;
+    transition:opacity 1.8s ease;
+
+    z-index:200;
 
 }
 
 body.open #welcome{
 
-opacity:1;
+    opacity:1;
 
-transition-delay:2.2s;
+    transition-delay:2.2s;
 
 }
 
 #welcome h1{
 
-font-size:56px;
+    font-size:clamp(2.2rem,5vw,3.6rem);
 
-margin-bottom:30px;
+    font-weight:400;
+
+    margin-bottom:20px;
 
 }
 
 #welcome p{
 
-font-size:28px;
+    font-size:clamp(1rem,2.5vw,1.35rem);
 
-line-height:1.7;
+    line-height:1.8;
 
 }
