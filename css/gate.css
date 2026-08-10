@@ -1,66 +1,135 @@
-.hero{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    background:#000;
-}
-
-#scene{
-    position:absolute;
-    inset:0;
-    background:url("../assets/home-scene.webp") center center/cover no-repeat;
-    transform:scale(1.12);
-    transition:transform 5s ease;
-}
+/* =====================================
+   GATE
+===================================== */
 
 #gate{
+
     position:absolute;
     inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    pointer-events:none;
+
+    z-index:100;
+
+    perspective:2500px;
+
+    overflow:hidden;
+
 }
 
+/* ---------- FRAME ---------- */
+
 #frame{
+
     position:absolute;
+
     inset:0;
-    background:url("../assets/frame.webp") center center/contain no-repeat;
-    z-index:5;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    z-index:30;
+
+    pointer-events:none;
+
+    transition:opacity .8s ease;
+
 }
+
+/* ---------- DOORS ---------- */
 
 #leftDoor,
 #rightDoor{
+
     position:absolute;
+
     top:0;
+
     width:50%;
     height:100%;
-    background-size:cover;
-    background-repeat:no-repeat;
+
+    object-fit:cover;
+
+    backface-visibility:hidden;
+
     transform-style:preserve-3d;
-    transition:transform 2.5s cubic-bezier(.2,.8,.2,1);
+
+    transition:
+        transform 2.4s cubic-bezier(.2,.8,.2,1),
+        opacity .6s ease;
+
 }
+
+/* LEFT */
 
 #leftDoor{
+
     left:0;
-    background-image:url("../assets/door-left.webp");
+
+    object-position:left center;
+
     transform-origin:left center;
+
+    z-index:20;
+
 }
+
+/* RIGHT */
 
 #rightDoor{
+
     right:0;
-    background-image:url("../assets/door-right.webp");
+
+    object-position:right center;
+
     transform-origin:right center;
+
+    z-index:20;
+
 }
 
-.hero.open #leftDoor{
-    transform:rotateY(-105deg);
+/* ---------- OPEN ---------- */
+
+body.open #leftDoor{
+
+    transform:
+        perspective(2500px)
+        rotateY(-108deg);
+
 }
 
-.hero.open #rightDoor{
-    transform:rotateY(105deg);
+body.open #rightDoor{
+
+    transform:
+        perspective(2500px)
+        rotateY(108deg);
+
 }
 
-.hero.open #scene{
-    transform:scale(1);
+body.open #frame{
+
+    opacity:0;
+
+    transition-delay:1.8s;
+
+}
+
+/* ---------- GATE REMOVE ---------- */
+
+body.open #gate{
+
+    animation:
+        removeGate .8s ease 2.6s forwards;
+
+}
+
+@keyframes removeGate{
+
+    to{
+
+        opacity:0;
+        visibility:hidden;
+
+    }
+
 }
