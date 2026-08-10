@@ -1,11 +1,31 @@
-window.addEventListener("load",()=>{
+const gate = document.getElementById("gate");
 
-const hero=document.querySelector(".hero");
+let opened = false;
 
-setTimeout(()=>{
+function openGate(){
 
-hero.classList.add("open");
+    if(opened) return;
 
-},1200);
+    opened = true;
+
+    document.body.classList.add("open");
+
+    setTimeout(()=>{
+
+        gate.style.pointerEvents="none";
+
+    },2400);
+
+}
+
+gate.addEventListener("click",openGate);
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.code==="Space"){
+
+        openGate();
+
+    }
 
 });
